@@ -62,7 +62,10 @@
       }
 
       function onPlayerReady(event) {
-        event.target.playVideo();
+        // Mencoba play otomatis dengan jeda 1 detik
+        setTimeout(function() {
+          event.target.playVideo();
+        }, 1000);
       }
 
       function onPlayerStateChange(event) {
