@@ -399,15 +399,21 @@
     </div>
 
     <section class="welcome">
-      <h1>My Beautiful Girl, My Greatest Pride ❤️</h1>
+      <h1>Happy 26th Birthday, My Love ❤️</h1>
       <p>
-        You’re not only the most beautiful woman in my eyes, but also someone
-        I’m incredibly proud to have in my life. On your 26th birthday, I hope
-        every dream you’ve been wishing for slowly becomes a beautiful reality.
-        No matter the distance, I’ll always be here, cheering for you and
-        believing in you. May this new chapter of your life be filled with
-        happiness, love, and everything your heart deserves. 💖
+        Happy 26th birthday to the most beautiful woman in my life. 🎂💖 May all
+        the dreams in your heart come true, and may this new chapter bring you
+        happiness, blessings, success, and good things in life. I’m so proud of you
+        and everything you’ve achieved so far. ✨
       </p>
+
+      <p>
+        Even though you’re far away from home, I hope you always feel my love and
+        support. Wherever you are, I hope everything always goes smoothly for you,
+        and hopefully, you’ll be back to your homebase soon. Until then, keep
+        smiling, keep shining, and know that I’ll always be here for you. ❤️
+      </p>
+
     </section>
 
     <div class="memory-container">
@@ -484,37 +490,75 @@
       </div>
 
       <div class="memory-card">
-        <img src="./9.jpeg" alt="Forever Proud of You" class="memory-img" />
-        <div class="memory-date">Bonus: Still Falling for You 😂❤️😍</div>
+        <img src="./9.jpeg" alt="Always Beautiful" class="memory-img" />
+        <div class="memory-date">Bonus: Always Beautiful ❤️✨</div>
         <div class="memory-caption">
-          Even when you’re being this silly and making me laugh, somehow I still
-          keep falling for you, again and again. 😂❤️😍
+          I hope you’ll always stay this beautiful, healthy, and happy. May life
+          always be kind to you, and may you continue to grow into an even happier
+          version of yourself. ❤️
         </div>
       </div>
     </div>
 
     <section class="final-message">
-      <h2>Happy 26th Birthday, My Love ❤️</h2>
-
-      <p>
-        Happy 26th birthday to the most beautiful woman in my life. 🎂💖 May all
-        the dreams in your heart come true, and may this new chapter bring you
-        endless happiness, blessings, success, and abundant fortune. I’m so
-        proud of you and everything you’re becoming. ✨
-      </p>
-
-      <p>
-        Even though you’re far away from home, I hope you always feel my love
-        and support. I hope everything goes beautifully for you in Banyuwangi,
-        and hopefully you’ll be back to your homebase soon. Until then, keep
-        smiling, keep shining, and know that I’ll keep falling for you, again
-        and again. ❤️🥺
-      </p>
-
       <p class="text-center">
         <b>With all my love</b>,<br />
         <i>Anggie Arpin</i>
       </p>
     </section>
+
+    <!-- YouTube Background Music Player -->
+    <div id="player" style="display: none;"></div>
+    
+    <button id="music-btn" class="goodbye-btn" style="position: fixed; bottom: 20px; right: 20px; z-index: 999; padding: 10px 20px; font-size: 1rem;" onclick="toggleMusic()">
+      ▶️ Play Music
+    </button>
+
+    <script>
+      var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          height: '0',
+          width: '0',
+          videoId: 'vhVBWw6rId0', // ID dari video YouTube Anda
+          playerVars: {
+            'autoplay': 1,
+            'loop': 1,
+            'playlist': 'vhVBWw6rId0'
+          },
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+          }
+        });
+      }
+
+      function onPlayerReady(event) {
+        // Otomatis play saat script YouTube selesai dimuat
+        event.target.playVideo();
+      }
+
+      function onPlayerStateChange(event) {
+        var btn = document.getElementById("music-btn");
+        // Update teks tombol sesuai status (play/pause)
+        if (event.data == YT.PlayerState.PLAYING) {
+          btn.innerHTML = "⏸️ Pause Music";
+        } else {
+          btn.innerHTML = "▶️ Play Music";
+        }
+      }
+
+      function toggleMusic() {
+        if (player && player.getPlayerState) {
+          var state = player.getPlayerState();
+          if (state == YT.PlayerState.PLAYING || state == YT.PlayerState.BUFFERING) {
+            player.pauseVideo();
+          } else {
+            player.playVideo();
+          }
+        }
+      }
+    </script>
+    <script src="https://www.youtube.com/iframe_api"></script>
   </body>
 </html>
